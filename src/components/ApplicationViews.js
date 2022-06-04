@@ -2,6 +2,7 @@ import React from "react"
 import { Route, Routes } from "react-router-dom"
 import { Home } from "../Home"
 import { EpisodeList } from './episode/EpisodeList.js'
+import { EpisodeDetail } from "./episode/EpisodeDetail.js"
 
 export const ApplicationViews = () => {
     return (
@@ -12,6 +13,8 @@ export const ApplicationViews = () => {
 
                 {/* Render the episode list when http://localhost:3000/episodes */}
                 <Route path="/episodes" element={<EpisodeList />} />
+
+                <Route path="/episodes/:episodeId" element={<EpisodeDetail />} />
             </Routes>
         </>
     )
