@@ -54,6 +54,7 @@ export const EpisodeDetail = () => {
                 {/* TODO: LATER link to author details page*/}
                 {author.authorFirst} {author.authorLast}
             </div>
+            {/* FIXME: need to figure out how to make HTML work here */}
             <div className="episode__summary">
                 {episode.briefSummaryShowNotes}
             </div>
