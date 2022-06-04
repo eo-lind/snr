@@ -1,7 +1,7 @@
 import React from "react"
 import "./Episode.css"
 
-export const EpisodeCard = ({ episode }) => {
+export const EpisodeCard = ({ episode, handleDeleteEpisode }) => {
     return (
         <div className="card">
             <div className="card-content">
@@ -19,6 +19,13 @@ export const EpisodeCard = ({ episode }) => {
                 <div className="episode__tags">
                     tag, tag, tag, tag, tag, tag, tag, tag, tag, tag, tag, tag
                 </div>
+                {/* TODO: will probably have to get rid of delete button eventually */}
+                <button
+                    type="button"
+                    onClick={() => handleDeleteEpisode(episode.id)}
+                >
+                    Delete
+                </button>
             </div>
         </div>
     )
