@@ -1,0 +1,103 @@
+{
+  "episodes": [
+    {
+        "id": 1,
+        "title": "Kathy Jones",
+        "publishDate": 1489726800000,
+        "authorId": 1,
+        "audioUrl": "delete field when second entry is added",
+        "showNotesUrl": "update later",
+        "briefSummaryShowNotes": "<p>In 1969, 12-year-old Kathy Jones left her home in Nashville's Woodbine neighborhood to go roller skating. Two days later she was found dead. We go in-depth on this tragic cold case.</p><p><strong>UPDATE 7/21/19:</strong></p><pWe've pulled our Kathy Jones episodes from the feed from the time being. In 2019, Olivia released an investigative podcast series on Kathy's murder called Flatrock. Check out flatrockpod.com for more info and take a look at the short trailer below.</p>",
+        "blogGraphicUrl": "update later",
+        "fbEpReleasePostText": "update later",
+        "igEpReleasePostText": "update later",
+        "twitterEpReleasePostText": "update later",
+        "igAndFbStoryImageUrl": "delete field when second entry is added",
+        "fbPostImageUrl": "delete field when second entry is added",
+        "fbSourcesPostText": "update later",
+        "twitterSourcesPostText": "update later",
+        "tikTokIgFbReelVideoUrl": "delete field when second entry is added",
+        "tikTokIgFbReelVideoCaption": "update later"
+    }
+  ],
+  "image": [
+    {
+      "id": 1,
+      "epImageUrl": "varchar",
+      "epImageCaption": "varchar",
+      "epImageAltText": "varchar",
+      "epImageCredit": "varchar",
+      "epImageSourceUrl": "varchar",
+      "epImageSourceCitationText": "varchar"
+    }
+  ],
+  "videos": [
+    {
+      "id": 1,
+      "sourceCitationText": "varchar",
+      "sourceUrl": "varchar"
+    }
+  ],
+  "sources": [
+    {
+      "id": 1,
+      "sourceCitationText": "varchar",
+      "sourceUrl": "varchar"
+    }
+  ],
+  "authors": [
+    {
+      "id": 1,
+      "authorFirst": "Olivia",
+      "authorlast": "Lind",
+      "email": "notrightpodcast@gmail.com"
+    },
+    {
+      "id": 2,
+      "authorFirst": "Thashana",
+      "authorlast": "McQuiston",
+      "email": "notrightpodcast@gmail.com"
+    },
+    {
+      "id": 3,
+      "authorFirst": "J.R.",
+      "authorlast": "Lind",
+      "email": "notrightpodcast@gmail.com"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "tag": "unsolved",
+      "hashtag": "#unsolved"
+    }
+  ],
+  "episode_source": [
+    {
+      "id": 1,
+      "episodeId": 1,
+      "sourceId": 1
+    }
+  ],
+  "episode_image": [
+{
+      "id": 1,
+      "episodeId": 1,
+      "imageId": 1
+}
+  ],
+  "episode_tag": [
+    {
+      "id": 1,
+      "episodeId": 1,
+      "tagId": 1
+    }
+  ],
+  "episode_video": [
+    {
+      "id": 1,
+      "episodeId": 1,
+      "videoId": 1
+    }
+  ]
+}
