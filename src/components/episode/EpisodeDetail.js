@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { getEpisodeById, deleteEpisode } from "../../modules/EpisodeManager"
+import { getAuthorById } from "../../modules/AuthorManager"
 import { useParams, useNavigate } from "react-router-dom"
 import "./EpisodeDetail.css"
 
@@ -9,6 +10,20 @@ export const EpisodeDetail = () => {
 
     const { episodeId } = useParams()
     const navigate = useNavigate()
+
+    const authorId = episode.authorId
+    const [author, setAuthor] = useState([])
+
+    // gets authors by user id (based on the author id in the episode object) so their names can be displayed
+    const getAuthor = () => {
+        getAuthorById(authorId).then((singleAuthor) => {
+            setAuthor(singleAuthor)
+        })
+    }
+
+    useEffect(() => {
+        getAuthor()
+    }, [])
 
     const handleDelete = () => {
 
@@ -37,8 +52,7 @@ export const EpisodeDetail = () => {
             <div className="episode__publishDate">{episode.publishDate}</div>
             <div className="episode__author">
                 {/* TODO: LATER link to author details page*/}
-                {/* FIXME: This should be displaying an author (all current posts have one) - why isn't it? It breaks if you remove optional chaining operator */}
-                {episode.author?.authorFirst} {episode.author?.authorLast}
+                {author.authorFirst} {author.authorLast}
             </div>
             <div className="episode__summary">
                 {episode.briefSummaryShowNotes}
