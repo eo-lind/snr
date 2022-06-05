@@ -8,7 +8,7 @@ fieldset {
     background: aliceblue;
 }
 
-fieldset input, fieldset button, fieldset select{
+fieldset input, fieldset button, fieldset select, textarea {
     box-sizing: border-box;
     padding: .2em .4em;
     margin: .2em 0;

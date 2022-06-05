@@ -14,19 +14,7 @@ export const EpisodeDetail = () => {
     const authorId = episode.authorId
     const [author, setAuthor] = useState([])
 
-    // gets authors by user id (based on the author id in the episode object) so their names can be displayed
-    const getAuthor = () => {
-        getAuthorById(authorId).then((singleAuthor) => {
-            setAuthor(singleAuthor)
-        })
-    }
-
-    useEffect(() => {
-        getAuthor()
-    }, [])
-
     const handleDelete = () => {
-
         setIsLoading(true)
         deleteEpisode(episodeId).then(() => navigate("/episodes"))
     }
@@ -46,6 +34,18 @@ export const EpisodeDetail = () => {
         })
     }, [episodeId])
 
+    // ! author is displaying, but there's an error in devtools
+    // gets authors by user id (based on the author id in the episode object) so their names can be displayed
+    const getAuthor = () => {
+        getAuthorById(authorId).then((singleAuthor) => {
+            setAuthor(singleAuthor)
+        })
+    }
+
+    useEffect(() => {
+        getAuthor()
+    }, [authorId])
+
     return (
         <section className="episode">
             <h3 className="episode__title">{episode.title}</h3>
@@ -58,9 +58,7 @@ export const EpisodeDetail = () => {
             <div className="episode__summary">
                 {episode.briefSummaryShowNotes}
             </div>
-            {/* TODO: Implement optional chaining later on the relevant details (tags... not sure if there will be others)
-            https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
-             */}
+            {/* TODO: Implement optional chaining later on the relevant details (tags... not sure if there will be others) */}
             {/* <div className="episode__location">
                 Location: {episode.location?.name}
             </div> */}
