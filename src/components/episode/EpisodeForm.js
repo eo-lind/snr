@@ -5,9 +5,17 @@ import { getAllAuthors } from "../../modules/AuthorManager"
 import "./EpisodeForm.css"
 
 export const EpisodeForm = () => {
+    let today = new Date()
+    let dd = String(today.getDate()).padStart(2, "0")
+    let mm = String(today.getMonth() + 1).padStart(2, "0") //January is 0!
+    let yyyy = today.getFullYear()
+
+    today = mm + "/" + dd + "/" + yyyy
+
+    //new Date().toISOString().slice(0, 10)
     const [episode, setEpisode] = useState({
         title: "",
-        publishDate: new Date(),
+        publishDate: `${today}`,
         authorId: 0,
         audioUrl: "",
         showNotesUrl: "",
@@ -47,7 +55,7 @@ export const EpisodeForm = () => {
     useEffect(() => {
         getAllAuthors().then((authors) => {
             setAuthors(authors)
-        });
+        })
     }, [authors])
 
     const handleClickSaveEpisode = (event) => {
@@ -57,8 +65,7 @@ export const EpisodeForm = () => {
 
         if (authorId === 0) {
             window.alert("Please select an author ")
-        } 
-        else {
+        } else {
             addEpisode(episode).then(() => navigate("/episodes"))
         }
     }
