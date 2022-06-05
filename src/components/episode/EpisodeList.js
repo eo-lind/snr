@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { EpisodeCard } from './EpisodeCard';
-import { getAllEpisodes, getEpisodeById, deleteEpisode } from '../../modules/EpisodeManager';
+import { getAllEpisodes, deleteEpisode } from '../../modules/EpisodeManager';
 import { useNavigate } from "react-router-dom"
 
 export const EpisodeList = () => {

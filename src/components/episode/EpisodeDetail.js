@@ -44,7 +44,7 @@ export const EpisodeDetail = () => {
 
     useEffect(() => {
         getAuthor()
-    }, [authorId])
+    }, [])
 
     return (
         <section className="episode">

@@ -4,18 +4,10 @@ import { addEpisode } from "../../modules/EpisodeManager"
 import { getAllAuthors } from "../../modules/AuthorManager"
 import "./EpisodeForm.css"
 
-// ! FIXME: fix Episode Add Form 
-// TODO figure out how to enforce required fields on episode add form & episode edit form
-// TODO store tags on the object?
-// TODO should I separate out and use actual URLs for the social media posts?
-// TODO show remaining characters on character limited captions
-// TODO: move these things to issue tickets
-// TODO style alert windows
-
 export const EpisodeForm = () => {
     const [episode, setEpisode] = useState({
         title: "",
-        publishDate: "",
+        publishDate: new Date(),
         authorId: 0,
         audioUrl: "",
         showNotesUrl: "",
@@ -65,7 +57,8 @@ export const EpisodeForm = () => {
 
         if (authorId === 0) {
             window.alert("Please select an author ")
-        } else {
+        } 
+        else {
             addEpisode(episode).then(() => navigate("/episodes"))
         }
     }
@@ -92,21 +85,6 @@ export const EpisodeForm = () => {
                         value={episode.title}
                     />
                 </div>
-
-                {/* FIXME: ---------------datepicker--------------- */}
-                {/* <div className="form-group">
-                    <label htmlFor="date">Published:</label>
-                    <br />
-                    <input
-                        size="50"
-                        type="date"
-                        id="date"
-                        onChange={handleControlledInputChange}
-                        required
-                        className="form-control"
-                        value={episode.publishDate}
-                    />
-                </div> */}
 
                 {/* ---------------Brief Description--------------- */}
                 <div className="form-group">
@@ -191,8 +169,12 @@ export const EpisodeForm = () => {
                     >
                         <option value="0">Select an author</option>
                         {authors.map((singleAuthor) => (
-                            <option key={singleAuthor.id} value={singleAuthor.id}>
-                                {singleAuthor.authorFirst} {singleAuthor.authorLast}
+                            <option
+                                key={singleAuthor.id}
+                                value={singleAuthor.id}
+                            >
+                                {singleAuthor.authorFirst}{" "}
+                                {singleAuthor.authorLast}
                             </option>
                         ))}
                     </select>
