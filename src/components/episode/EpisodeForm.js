@@ -4,17 +4,19 @@ import { addEpisode } from "../../modules/EpisodeManager"
 import { getAllAuthors } from "../../modules/AuthorManager"
 import "./EpisodeForm.css"
 
-// ! FIXME: figure out how to require fields
+// ! FIXME: fix Episode Add Form 
+// TODO figure out how to enforce required fields on episode add form & episode edit form
 // TODO store tags on the object?
 // TODO should I separate out and use actual URLs for the social media posts?
 // TODO show remaining characters on character limited captions
 // TODO: move these things to issue tickets
+// TODO style alert windows
 
 export const EpisodeForm = () => {
     const [episode, setEpisode] = useState({
         title: "",
         publishDate: "",
-        authorId: 1,
+        authorId: 0,
         audioUrl: "",
         showNotesUrl: "",
         briefSummaryShowNotes: "",
@@ -32,14 +34,9 @@ export const EpisodeForm = () => {
         tikTokIgFbReelVideoCaption: "",
     })
 
-    // TODO form fields to add:
-    // author dropdown REQUIRED
-
     const [isLoading, setIsLoading] = useState(false)
-
-    // TODO: FIXME: update the stuff below for dropdown selectors
-
     const [authors, setAuthors] = useState([])
+
     const navigate = useNavigate()
 
     const handleControlledInputChange = (event) => {
@@ -55,29 +52,22 @@ export const EpisodeForm = () => {
         setEpisode(newEpisode)
     }
 
-    // TODO: FIXME: see above re: dropdowns
-    // useEffect(() => {
-    //     //load author data and setState
-    // }, [])
+    useEffect(() => {
+        getAllAuthors().then((authors) => {
+            setAuthors(authors)
+        });
+    }, [authors])
 
     const handleClickSaveEpisode = (event) => {
         event.preventDefault()
 
-        addEpisode(episode).then(() => navigate("/episodes"))
+        const authorId = episode.authorId
 
-        // FIXME: once the stuff below is done, the add episode line above can be deleted
-        // TODO: see above re: dropdowns
-        // const authorId = episode.authorId
-        // const customerId = episode.customerId
-
-        // TODO: see above re: dropdowns
-        // if (authorId === 0 || customerId === 0) {
-        //     window.alert("Please select a author and a customer")
-        // } else {
-        //     //invoke addEpisode passing episode as an argument.
-        //     //once complete, change the url and display the episode list
-        //     addEpisode(episode).then(() => navigate("/episodes"))
-        // }
+        if (authorId === 0) {
+            window.alert("Please select an author ")
+        } else {
+            addEpisode(episode).then(() => navigate("/episodes"))
+        }
     }
 
     return (
@@ -189,9 +179,8 @@ export const EpisodeForm = () => {
                     />
                 </div>
 
-                {/* TODO: FIXME: For dropdowns - author, Tags? */}
-                {/* <div className="form-group">
-                    <label htmlFor="author">Assign to author:</label>
+                <div className="form-group">
+                    <label htmlFor="author">Choose Author:</label>
                     <br />
                     <select
                         value={episode.authorId}
@@ -200,34 +189,14 @@ export const EpisodeForm = () => {
                         onChange={handleControlledInputChange}
                         className="form-control"
                     >
-                        <option value="0">Select a author</option>
-                        {authors.map((l) => (
-                            <option key={l.id} value={l.id}>
-                                {l.name}
+                        <option value="0">Select an author</option>
+                        {authors.map((singleAuthor) => (
+                            <option key={singleAuthor.id} value={singleAuthor.id}>
+                                {singleAuthor.authorFirst} {singleAuthor.authorLast}
                             </option>
                         ))}
                     </select>
                 </div>
-            </fieldset>
-            <fieldset>
-                <div className="form-group">
-                    <label htmlFor="customerId">Customer:</label>
-                    <br />
-                    <select
-                        value={episode.customerId}
-                        name="customer"
-                        id="customerId"
-                        onChange={handleControlledInputChange}
-                        className="form-control"
-                    >
-                        <option value="0">Select a customer</option>
-                        {customers.map((c) => (
-                            <option key={c.id} value={c.id}>
-                                {c.name}
-                            </option>
-                        ))}
-                    </select>
-                </div> */}
             </fieldset>
 
             {/* ---------------SOCIAL MEDIA FIELDS--------------- */}
