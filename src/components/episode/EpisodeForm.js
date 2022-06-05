@@ -3,43 +3,45 @@ import { useNavigate } from "react-router-dom"
 import { addEpisode } from "../../modules/EpisodeManager"
 import "./EpisodeForm.css"
 
+// ! FIXME: figure out how to require fields
+// TODO store tags on the object?
 export const EpisodeForm = () => {
 
     const [episode, setEpisode] = useState({
         title: "",
-        publishDate: 0,
+        publishDate: "",
         authorId: 1,
-        audioUrl: "please add",
-        showNotesUrl: "please add",
+        audioUrl: "",
+        showNotesUrl: "",
         briefSummaryShowNotes: "",
-        blogGraphicUrl: "please add",
-        fbEpReleasePostText: "please add",
-        igEpReleasePostText: "please add",
-        twitterEpReleasePostText: "please add",
-        igAndFbStoryImageUrl: "please add",
-        fbPostImageUrl: "please add",
-        fbSourcesPostText: "please add",
-        twitterSourcesPostText: "please add",
-        tikTokIgFbReelVideoUrl: "please add",
-        tikTokIgFbReelVideoCaption: "please add",
+        blogGraphicUrl: "",
+        fbEpReleasePostText: "",
+        fbEpReleaseImageUrl: "",
+        igEpReleasePostText: "",
+        igEpReleasePostImageUrl: "",
+        twitterEpReleasePostText: "",
+        twitterEpReleasePostImageUrl: "",
+        igAndFbStoryImageUrl: "",
+        fbSourcesPostText: "",
+        twitterSourcesPostText: "",
+        tikTokIgFbReelVideoUrl: "",
+        tikTokIgFbReelVideoCaption: "",
     })
 
-    // TODO: form fields to add:
-    // date picker REQUIRED
+    // TODO form fields to add:
     // author dropdown REQUIRED
-    // audioUrl *remove* requirement
-    // shownotesUrl *remove* requirement
-    // blogGraphicUrl *remove* requirement
+
     // separate social media fieldset:
-    // fbEpReleasePostText *remove* requirement
-    // igEpReleasePostText *remove* requirement ^char limit
-    // twitterEpReleasePostText *remove* requirement ^char limit
-    // igAndFbStoryImageUrl *remove* requirement
-    // fbPostImageUrl *remove* requirement
-    // fbSourcesPostText *remove* requirement
-    // twitterSourcesPostText *remove* requirement ^char limit
-    // tikTokIgFbReelVideoUrl *remove* requirement
-    // tikTokIgFbReelVideoCaption *remove* requirement ^char limit
+    // fbEpReleasePostText
+    // igEpReleasePostText ^char limit
+    // twitterEpReleasePostText ^char limit
+    // igAndFbStoryImageUrl
+    // fbPostImageUrl
+    // fbSourcesPostText
+    // twitterSourcesPostText ^char limit
+    // tikTokIgFbReelVideoUrl
+    // tikTokIgFbReelVideoCaption ^char limit
+    // store tags on the object?
 
     const [isLoading, setIsLoading] = useState(false)
 
@@ -92,13 +94,15 @@ export const EpisodeForm = () => {
         //     addEpisode(episode).then(() => navigate("/episodes"))
         // }
     }
-
+// TODO: update placeholder text on all fields
     return (
         <form className="episodeForm">
             <h2 className="episodeForm__title">New Episode Show Notes Post</h2>
             <fieldset>
+                {/* ---------------title--------------- */}
                 <div className="form-group">
                     <label htmlFor="title">Episode title:</label>
+                    <br />
                     <input
                         type="text"
                         id="title"
@@ -110,9 +114,25 @@ export const EpisodeForm = () => {
                         value={episode.title}
                     />
                 </div>
+
+                {/* FIXME: ---------------datepicker--------------- */}
+                {/* <div className="form-group">
+                    <label htmlFor="date">Published:</label>
+                    <br />
+                    <input
+                        type="date"
+                        id="date"
+                        onChange={handleControlledInputChange}
+                        required
+                        className="form-control"
+                        value={episode.publishDate}
+                    />
+                </div> */}
+
                 {/* TODO: change this to a textarea later? */}
                 <div className="form-group">
                     <label htmlFor="briefSummary">Episode Summary:</label>
+                    <br />
                     <input
                         type="text"
                         id="briefSummaryShowNotes"
@@ -124,12 +144,61 @@ export const EpisodeForm = () => {
                         value={episode.briefSummaryShowNotes}
                     />
                 </div>
+
+                {/* ---------------audio url--------------- */}
+                <div className="form-group">
+                    <label htmlFor="audioUrl">Episode Audio:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="audioUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Episode Audio URL"
+                        value={episode.audioUrl}
+                    />
+                </div>
+
+                {/* ---------------show notes graphic URL--------------- */}
+                <div className="form-group">
+                    <label htmlFor="blogGraphicUrl">Episode Graphic:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="blogGraphicUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Episode Graphic URL"
+                        value={episode.blogGraphicUrl}
+                    />
+                </div>
+
+                {/* ---------------show notes Url--------------- */}
+                <div className="form-group">
+                    <label htmlFor="showNotesUrl">Show Notes URL:</label>
+                    <br />
+                    <input
+                        type="text"
+                        id="showNotesUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Episode Graphic URL"
+                        value={episode.showNotesUrl}
+                    />
+                </div>
             </fieldset>
 
             {/* TODO: FIXME: For dropdowns - author, Tags? */}
-            {/* <fieldset>
-                <div className="form-group">
-                    <label htmlFor="location">Assign to location: </label>
+            <fieldset>
+                {/* <div className="form-group">
+                    <label htmlFor="location">Assign to location:</label>
+                    <br />
                     <select
                         value={episode.locationId}
                         name="locationId"
@@ -148,7 +217,8 @@ export const EpisodeForm = () => {
             </fieldset>
             <fieldset>
                 <div className="form-group">
-                    <label htmlFor="customerId">Customer: </label>
+                    <label htmlFor="customerId">Customer:</label>
+                    <br />
                     <select
                         value={episode.customerId}
                         name="customer"
@@ -163,8 +233,208 @@ export const EpisodeForm = () => {
                             </option>
                         ))}
                     </select>
+                </div> */}
+                {/* ---------------SOCIAL MEDIA FIELDS--------------- */}
+                {/* TODO: change this to a textarea later? */}
+                {/* ---------------Facebook episode release post--------------- */}
+                {/* TODO: add headers and fieldsets to delineate sections */}
+                <div className="form-group">
+                    <label htmlFor="fbEpReleasePostText">
+                        Facebook Post (Episode Release):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="fbEpReleasePostText"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Facebook Post (Episode Release)"
+                        value={episode.fbEpReleasePostText}
+                    />
                 </div>
-            </fieldset> */}
+                {/* ---------------Facebook episode release post image URL--------------- */}
+                <div className="form-group">
+                    <label htmlFor="fbEpReleaseImageUrl">
+                        Facebook Post Image (Episode Release):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="fbEpReleaseImageUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Facebook image URL"
+                        value={episode.fbEpReleaseImageUrl}
+                    />
+                </div>
+                {/* TODO: change this to a textarea later? */}
+                {/* ---------------Instagram episode release post--------------- */}
+                <div className="form-group">
+                    <label htmlFor="igEpReleasePostText">
+                        Instagram Post (Episode Release):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="igEpReleasePostText"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Instagram Post (Episode Release)"
+                        value={episode.igEpReleasePostText}
+                    />
+                </div>
+                {/* TODO: add character limit */}
+                {/* ---------------Instagram episode release post image URL--------------- */}
+                <div className="form-group">
+                    <label htmlFor="igEpReleasePostImageUrl">
+                        Instagram Post Image (Episode Release):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="igEpReleasePostImageUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Instagram image URL Episode Release"
+                        value={episode.igEpReleasePostImageUrl}
+                    />
+                </div>
+                {/* TODO: add character limit */}
+                {/* ---------------Twitter episode release post--------------- */}
+                <div className="form-group">
+                    <label htmlFor="twitterEpReleasePostText">
+                        Twitter Post (Episode Release):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="twitterEpReleasePostText"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Twitter Post (Episode Release)"
+                        value={episode.twitterEpReleasePostText}
+                    />
+                </div>
+                {/* ---------------Twitter episode release post image URL--------------- */}
+                <div className="form-group">
+                    <label htmlFor="igEpReleasePostImageUrl">
+                        Twitter Post Image (Episode Release):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="igEpReleasePostImageUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Twitter image URL"
+                        value={episode.igEpReleasePostImageUrl}
+                    />
+                </div>
+                {/* ---------------Instagram & Facebook story image URL--------------- */}
+                <div className="form-group">
+                    <label htmlFor="igAndFbStoryImageUrl">
+                        Story Image URL (Instagram &amp; Facebook):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="igAndFbStoryImageUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="IG AND FB image url"
+                        value={episode.igAndFbStoryImageUrl}
+                    />
+                </div>
+                {/* TODO: add character limit */}
+                {/* TODO: change this to a textarea later? */}
+                {/* ---------------TikTok + Instagram & Facebook Reels caption--------------- */}
+                <div className="form-group">
+                    <label htmlFor="tikTokIgFbReelVideoCaption">
+                        Caption (TikTok &plus; Instagram &amp; Facebook Reels):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="tikTokIgFbReelVideoCaption"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="TikTok, IG, and FB caption"
+                        value={episode.tikTokIgFbReelVideoCaption}
+                    />
+                </div>
+                {/* ---------------TikTok + Instagram & Facebook Reels video URL--------------- */}
+                <div className="form-group">
+                    <label htmlFor="tikTokIgFbReelVideoUrl">
+                        Video URL (TikTok &plus; Instagram &amp; Facebook
+                        Reels):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="tikTokIgFbReelVideoUrl"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="TikTok, IG, and FB video url"
+                        value={episode.tikTokIgFbReelVideoUrl}
+                    />
+                </div>
+                {/* TODO: change this to a textarea later? */}
+                {/* ---------------Facebook Sources Post--------------- */}
+                <div className="form-group">
+                    <label htmlFor="fbSourcesPostText">
+                        Sources Post (Facebook):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="fbSourcesPostText"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Sources Post (Facebook)"
+                        value={episode.fbSourcesPostText}
+                    />
+                </div>
+                {/* TODO: add character limit */}
+                {/* TODO: change this to a textarea later? */}
+                {/* ---------------Twitter Sources Post--------------- */}
+                <div className="form-group">
+                    <label htmlFor="twitterSourcesPostText">
+                        Sources Post (Twitter):
+                    </label>
+                    <br />
+                    <input
+                        type="text"
+                        id="twitterSourcesPostText"
+                        onChange={handleControlledInputChange}
+                        required
+                        autoFocus
+                        className="form-control"
+                        placeholder="Sources Post (Twitter)"
+                        value={episode.twitterSourcesPostText}
+                    />
+                </div>
+               
+            </fieldset>
             <button
                 type="button"
                 className="btn btn-primary"
