@@ -6,3 +6,4 @@
 // TODO: move these things to issue tickets
 // TODO style alert windows
 // TODO try bootstrap or material ui
+ // FIXME: when you go to episode details author is displaying, but there's an error in devtools

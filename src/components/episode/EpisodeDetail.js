@@ -34,7 +34,7 @@ export const EpisodeDetail = () => {
         })
     }, [episodeId])
 
-    // ! author is displaying, but there's an error in devtools
+    // ! FIXME: author is displaying, but there's an error in devtools
     // gets authors by user id (based on the author id in the episode object) so their names can be displayed
     const getAuthor = () => {
         getAuthorById(authorId).then((singleAuthor) => {
