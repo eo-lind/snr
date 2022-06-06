@@ -28,7 +28,7 @@ export const EpisodeDetail = () => {
                 audioUrl: episode.audioUrl,
                 showNotesUrl: episode.showNotesUrl,
                 briefSummaryShowNotes: episode.briefSummaryShowNotes,
-                blogGraphicUrl: episode.blogGraphicUrl,
+                blogGraphicPath: episode.blogGraphicUrl,
             })
             setIsLoading(false)
         })
