@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import { addEpisode } from "../../modules/EpisodeManager"
 import { getAllAuthors } from "../../modules/AuthorManager"
 import "./EpisodeForm.css"
-
+// FIXME: radio buttons are saving as strings of "true" or "false" instead of booleans
 export const EpisodeForm = () => {
     let today = new Date()
     let dd = String(today.getDate()).padStart(2, "0")
@@ -20,17 +20,17 @@ export const EpisodeForm = () => {
         audioUrl: "",
         showNotesUrl: "",
         briefSummaryShowNotes: "",
-        blogGraphicUrl: "",
+        blogGraphicPath: "",
         fbEpReleasePostText: "",
-        fbEpReleaseImageUrl: "",
+        fbEpReleaseImage: false,
         igEpReleasePostText: "",
-        igEpReleasePostImageUrl: "",
+        igEpReleasePostImage: false,
         twitterEpReleasePostText: "",
-        twitterEpReleasePostImageUrl: "",
-        igAndFbStoryImageUrl: "",
+        twitterEpReleasePostImage: false,
+        igAndFbStoryImage: false,
         fbSourcesPostText: "",
         twitterSourcesPostText: "",
-        tikTokIgFbReelVideoUrl: "",
+        tikTokIgFbReelVideo: false,
         tikTokIgFbReelVideoCaption: "",
     })
 
@@ -56,7 +56,7 @@ export const EpisodeForm = () => {
         getAllAuthors().then((authors) => {
             setAuthors(authors)
         })
-    }, [authors])
+    }, [])
 
     const handleClickSaveEpisode = (event) => {
         event.preventDefault()
@@ -80,6 +80,7 @@ export const EpisodeForm = () => {
                 <div className="form-group">
                     <label htmlFor="title">Episode Title:</label>
                     <br />
+
                     <input
                         size="50"
                         type="text"
@@ -97,6 +98,7 @@ export const EpisodeForm = () => {
                 <div className="form-group">
                     <label htmlFor="briefSummary">Episode Summary:</label>
                     <br />
+
                     <textarea
                         rows="10"
                         cols="50"
@@ -111,12 +113,11 @@ export const EpisodeForm = () => {
                     />
                 </div>
 
-                <h5>Can Be Added Later:</h5>
-
                 {/* ---------------audio url--------------- */}
                 <div className="form-group">
                     <label htmlFor="audioUrl">Episode Audio:</label>
                     <br />
+
                     <input
                         size="50"
                         type="text"
@@ -132,18 +133,19 @@ export const EpisodeForm = () => {
 
                 {/* ---------------show notes graphic URL--------------- */}
                 <div className="form-group">
-                    <label htmlFor="blogGraphicUrl">Episode Graphic:</label>
+                    <label htmlFor="blogGraphicPath">Episode Graphic:</label>
                     <br />
+
                     <input
                         size="50"
                         type="text"
-                        id="blogGraphicUrl"
+                        id="blogGraphicPath"
                         onChange={handleControlledInputChange}
                         required
                         autoFocus
                         className="form-control"
-                        placeholder="URL"
-                        value={episode.blogGraphicUrl}
+                        placeholder="File Path"
+                        value={episode.blogGraphicPath}
                     />
                 </div>
 
@@ -151,6 +153,7 @@ export const EpisodeForm = () => {
                 <div className="form-group">
                     <label htmlFor="showNotesUrl">Show Notes URL:</label>
                     <br />
+
                     <input
                         size="50"
                         type="text"
@@ -167,6 +170,7 @@ export const EpisodeForm = () => {
                 <div className="form-group">
                     <label htmlFor="author">Choose Author:</label>
                     <br />
+
                     <select
                         value={episode.authorId}
                         name="authorId"
@@ -192,13 +196,13 @@ export const EpisodeForm = () => {
             <fieldset>
                 <h3>Social Media</h3>
                 <h4>Episode Release Posts</h4>
-
                 {/* ---------------Facebook episode release post--------------- */}
                 <div className="form-group">
                     <label htmlFor="fbEpReleasePostText">
                         Facebook Post (Episode Release):
                     </label>
                     <br />
+
                     <textarea
                         rows="4"
                         cols="50"
@@ -212,32 +216,40 @@ export const EpisodeForm = () => {
                         value={episode.fbEpReleasePostText}
                     />
                 </div>
-
-                {/* ---------------Facebook episode release post image URL--------------- */}
+                {/* ---------------FIXME:Facebook episode release post image--------------- */}
                 <div className="form-group">
-                    <label htmlFor="fbEpReleaseImageUrl">
-                        Facebook Post Image (Episode Release):
+                    <label htmlFor="fbEpReleaseImage">
+                        Has image been created for Facebook episode release
+                        post?
                     </label>
                     <br />
                     <input
-                        size="50"
-                        type="text"
-                        id="fbEpReleaseImageUrl"
+                        type="radio"
+                        id="fbEpReleaseImage"
+                        name="fbEpReleaseImage"
+                        value={true}
                         onChange={handleControlledInputChange}
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="URL"
-                        value={episode.fbEpReleaseImageUrl}
                     />
+                    <label htmlFor="fbEpReleaseImage"> Created</label>
+                    <br />
+                    <input
+                        type="radio"
+                        id="fbEpReleaseImage"
+                        name="fbEpReleaseImage"
+                        value={false}
+                        onChange={handleControlledInputChange}
+                    />
+                    <label htmlFor="fbEpReleaseImage"> Not Yet</label>
+                    <br />
                 </div>
-
+                <hr />
                 {/* ---------------Instagram episode release post--------------- */}
                 <div className="form-group">
                     <label htmlFor="igEpReleasePostText">
                         Instagram Post (Episode Release):
                     </label>
                     <br />
+
                     <textarea
                         rows="4"
                         cols="50"
@@ -252,32 +264,40 @@ export const EpisodeForm = () => {
                         value={episode.igEpReleasePostText}
                     />
                 </div>
-
-                {/* ---------------Instagram episode release post image URL--------------- */}
+                {/* ---------------FIXME:Instagram episode release post image--------------- */}
                 <div className="form-group">
-                    <label htmlFor="igEpReleasePostImageUrl">
-                        Instagram Post Image (Episode Release):
+                    <label htmlFor="igEpReleasePostImage">
+                        Has image been created for Instagram episode release
+                        post?
                     </label>
                     <br />
                     <input
-                        size="50"
-                        type="text"
-                        id="igEpReleasePostImageUrl"
+                        type="radio"
+                        id="igEpReleasePostImage"
+                        name="igEpReleasePostImage"
+                        value={true}
                         onChange={handleControlledInputChange}
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="URL"
-                        value={episode.igEpReleasePostImageUrl}
                     />
+                    <label htmlFor="igEpReleasePostImage"> Created</label>
+                    <br />
+                    <input
+                        type="radio"
+                        id="igEpReleasePostImage"
+                        name="igEpReleasePostImage"
+                        value={false}
+                        onChange={handleControlledInputChange}
+                    />
+                    <label htmlFor="igEpReleasePostImage"> Not Yet</label>
+                    <br />
                 </div>
-
+                <hr />
                 {/* ---------------Twitter episode release post--------------- */}
                 <div className="form-group">
                     <label htmlFor="twitterEpReleasePostText">
                         Twitter Post (Episode Release):
                     </label>
                     <br />
+
                     <textarea
                         rows="4"
                         cols="50"
@@ -292,34 +312,40 @@ export const EpisodeForm = () => {
                         value={episode.twitterEpReleasePostText}
                     />
                 </div>
-
-                {/* ---------------Twitter episode release post image URL--------------- */}
+                {/* ---------------FIXME:Twitter episode release post image--------------- */}
                 <div className="form-group">
-                    <label htmlFor="igEpReleasePostImageUrl">
-                        Twitter Post Image (Episode Release):
+                    <label htmlFor="twitterEpReleasePostImage">
+                        Has image been created for Twitter episode release post?
                     </label>
                     <br />
                     <input
-                        size="50"
-                        type="text"
-                        id="igEpReleasePostImageUrl"
+                        type="radio"
+                        id="twitterEpReleasePostImage"
+                        name="twitterEpReleasePostImage"
+                        value={true}
                         onChange={handleControlledInputChange}
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="URL"
-                        value={episode.igEpReleasePostImageUrl}
                     />
+                    <label htmlFor="twitterEpReleasePostImage"> Created</label>
+                    <br />
+                    <input
+                        type="radio"
+                        id="twitterEpReleasePostImage"
+                        name="twitterEpReleasePostImage"
+                        value={false}
+                        onChange={handleControlledInputChange}
+                    />
+                    <label htmlFor="twitterEpReleasePostImage"> Not Yet</label>
+                    <br />
                 </div>
-
+                <hr />
                 <h4>Reels &amp; Stories</h4>
-
                 {/* ---------------TikTok + Instagram & Facebook Reels caption--------------- */}
                 <div className="form-group">
                     <label htmlFor="tikTokIgFbReelVideoCaption">
-                        Caption (TikTok &plus; Instagram &amp; Facebook Reels):
+                        TikTok + Instagram &amp; Facebook Reels Caption:
                     </label>
                     <br />
+
                     <textarea
                         rows="4"
                         cols="50"
@@ -334,46 +360,61 @@ export const EpisodeForm = () => {
                         value={episode.tikTokIgFbReelVideoCaption}
                     />
                 </div>
-
-                {/* ---------------TikTok + Instagram & Facebook Reels video URL--------------- */}
+                {/* ---------------FIXME:TikTok + Instagram & Facebook Reels video--------------- */}
                 <div className="form-group">
-                    <label htmlFor="tikTokIgFbReelVideoUrl">
-                        Video URL (TikTok &plus; Instagram &amp; Facebook
-                        Reels):
+                    <label htmlFor="tikTokIgFbReelVideo">
+                        Has video been created for TikTok and Instagram/Facebook
+                        reels?
                     </label>
                     <br />
                     <input
-                        size="50"
-                        type="text"
-                        id="tikTokIgFbReelVideoUrl"
+                        type="radio"
+                        id="tikTokIgFbReelVideo"
+                        name="tikTokIgFbReelVideo"
+                        value={true}
                         onChange={handleControlledInputChange}
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="URL"
-                        value={episode.tikTokIgFbReelVideoUrl}
                     />
+                    <label htmlFor="tikTokIgFbReelVideo"> Created</label>
+                    <br />
+                    <input
+                        type="radio"
+                        id="tikTokIgFbReelVideo"
+                        name="tikTokIgFbReelVideo"
+                        value={false}
+                        onChange={handleControlledInputChange}
+                    />
+                    <label htmlFor="tikTokIgFbReelVideo"> Not Yet</label>
+                    <br />
                 </div>
+                <hr />
 
-                {/* ---------------Instagram & Facebook story image URL--------------- */}
+                {/* ---------------FIXME:Instagram & Facebook story image--------------- */}
                 <div className="form-group">
-                    <label htmlFor="igAndFbStoryImageUrl">
-                        Story Image URL (Instagram &amp; Facebook):
+                    <label htmlFor="igAndFbStoryImage">
+                        Has image been created for Instagram &amp; Facebook
+                        stories? reels?
                     </label>
                     <br />
                     <input
-                        size="50"
-                        type="text"
-                        id="igAndFbStoryImageUrl"
+                        type="radio"
+                        id="igAndFbStoryImage"
+                        name="igAndFbStoryImage"
+                        value={true}
                         onChange={handleControlledInputChange}
-                        required
-                        autoFocus
-                        className="form-control"
-                        placeholder="URL"
-                        value={episode.igAndFbStoryImageUrl}
                     />
+                    <label htmlFor="igAndFbStoryImage"> Created</label>
+                    <br />
+                    <input
+                        type="radio"
+                        id="igAndFbStoryImage"
+                        name="igAndFbStoryImage"
+                        value={false}
+                        onChange={handleControlledInputChange}
+                    />
+                    <label htmlFor="igAndFbStoryImage"> Not Yet</label>
+                    <br />
                 </div>
-
+                <hr />
                 <h4>Episode Sources Posts</h4>
 
                 {/* ---------------Facebook Sources Post--------------- */}
@@ -382,6 +423,7 @@ export const EpisodeForm = () => {
                         Sources Post (Facebook):
                     </label>
                     <br />
+
                     <textarea
                         rows="4"
                         cols="50"
@@ -402,6 +444,7 @@ export const EpisodeForm = () => {
                         Sources Post (Twitter):
                     </label>
                     <br />
+
                     <textarea
                         rows="4"
                         cols="50"
