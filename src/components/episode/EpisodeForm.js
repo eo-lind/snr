@@ -32,6 +32,8 @@ export const EpisodeForm = () => {
         twitterSourcesPostText: "",
         tikTokIgFbReelVideo: false,
         tikTokIgFbReelVideoCaption: "",
+        haveFbEpReleaseImg: false,
+        haveIgEpReleaseImg: false
     })
 
     const [isLoading, setIsLoading] = useState(false)
@@ -74,6 +76,10 @@ export const EpisodeForm = () => {
         <form className="episodeForm">
             <h2 className="episodeForm__title">Add Episode</h2>
             <fieldset>
+                <input type="checkbox" id="haveFbEpReleaseImg" name="facebook image" value={episode.haveFbEpReleaseImg = false} />
+                <label htmlFor="vehicle1"> FB ep release</label><br />
+                <input type="checkbox" id="haveIgEpReleaseImg" name="ig image" value={episode.haveIgEpReleaseImg = false} />
+                <label htmlFor="vehicle2"> IG ep release</label><br />
                 <h3>Show Notes</h3>
 
                 {/* ---------------title--------------- */}
