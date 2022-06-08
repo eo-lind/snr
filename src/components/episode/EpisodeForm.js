@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom"
 import { addEpisode } from "../../modules/EpisodeManager"
 import { getAllAuthors } from "../../modules/AuthorManager"
 import "./EpisodeForm.css"
-// FIXME: radio buttons are saving as strings of "true" or "false" instead of booleans
 export const EpisodeForm = () => {
     let today = new Date()
     let dd = String(today.getDate()).padStart(2, "0")
@@ -22,17 +21,18 @@ export const EpisodeForm = () => {
         briefSummaryShowNotes: "",
         blogGraphicPath: "",
         fbEpReleasePostText: "",
-        fbEpReleaseImage: false,
+        // fbEpReleaseImage: false,
         igEpReleasePostText: "",
-        igEpReleasePostImage: false,
+        // igEpReleasePostImage: false,
         twitterEpReleasePostText: "",
-        twitterEpReleasePostImage: false,
-        igAndFbStoryImage: false,
+        // twitterEpReleasePostImage: false,
+        // igAndFbStoryImage: false,
         fbSourcesPostText: "",
         twitterSourcesPostText: "",
-        tikTokIgFbReelVideo: false,
-        tikTokIgFbReelVideoCaption: "",
+        // tikTokIgFbReelVideo: false,
+        tikTokIgFbReelVideoCaption: ""
     })
+
 
     const [isLoading, setIsLoading] = useState(false)
     const [authors, setAuthors] = useState([])
@@ -51,7 +51,7 @@ export const EpisodeForm = () => {
 
         setEpisode(newEpisode)
     }
-
+  
     useEffect(() => {
         getAllAuthors().then((authors) => {
             setAuthors(authors)
@@ -74,6 +74,11 @@ export const EpisodeForm = () => {
         <form className="episodeForm">
             <h2 className="episodeForm__title">Add Episode</h2>
             <fieldset>
+                {/* 
+         ===================================================================================
+                                        SHOW NOTES SECTION
+         ===================================================================================
+         */}
                 <h3>Show Notes</h3>
 
                 {/* ---------------title--------------- */}
@@ -191,10 +196,19 @@ export const EpisodeForm = () => {
                     </select>
                 </div>
             </fieldset>
-
-            {/* ---------------SOCIAL MEDIA FIELDS--------------- */}
+            {/*
+            ===================================================================================
+                                            SOCIAL MEDIA SECTION
+            ===================================================================================
+            */}
             <fieldset>
                 <h3>Social Media</h3>
+
+                {/* 
+                ---------------------------------------------------------------------------
+                                            EPISODE RELEASE
+                ---------------------------------------------------------------------------
+                */}
                 <h4>Episode Release Posts</h4>
                 {/* ---------------Facebook episode release post--------------- */}
                 <div className="form-group">
@@ -216,33 +230,7 @@ export const EpisodeForm = () => {
                         value={episode.fbEpReleasePostText}
                     />
                 </div>
-                {/* ---------------FIXME:Facebook episode release post image--------------- */}
-                <div className="form-group">
-                    <label htmlFor="fbEpReleaseImage">
-                        Has image been created for Facebook episode release
-                        post?
-                    </label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="fbEpReleaseImage"
-                        name="fbEpReleaseImage"
-                        value={true}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="fbEpReleaseImage"> Created</label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="fbEpReleaseImage"
-                        name="fbEpReleaseImage"
-                        value={false}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="fbEpReleaseImage"> Not Yet</label>
-                    <br />
-                </div>
-                <hr />
+
                 {/* ---------------Instagram episode release post--------------- */}
                 <div className="form-group">
                     <label htmlFor="igEpReleasePostText">
@@ -264,33 +252,7 @@ export const EpisodeForm = () => {
                         value={episode.igEpReleasePostText}
                     />
                 </div>
-                {/* ---------------FIXME:Instagram episode release post image--------------- */}
-                <div className="form-group">
-                    <label htmlFor="igEpReleasePostImage">
-                        Has image been created for Instagram episode release
-                        post?
-                    </label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="igEpReleasePostImage"
-                        name="igEpReleasePostImage"
-                        value={true}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="igEpReleasePostImage"> Created</label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="igEpReleasePostImage"
-                        name="igEpReleasePostImage"
-                        value={false}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="igEpReleasePostImage"> Not Yet</label>
-                    <br />
-                </div>
-                <hr />
+
                 {/* ---------------Twitter episode release post--------------- */}
                 <div className="form-group">
                     <label htmlFor="twitterEpReleasePostText">
@@ -312,32 +274,7 @@ export const EpisodeForm = () => {
                         value={episode.twitterEpReleasePostText}
                     />
                 </div>
-                {/* ---------------FIXME:Twitter episode release post image--------------- */}
-                <div className="form-group">
-                    <label htmlFor="twitterEpReleasePostImage">
-                        Has image been created for Twitter episode release post?
-                    </label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="twitterEpReleasePostImage"
-                        name="twitterEpReleasePostImage"
-                        value={true}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="twitterEpReleasePostImage"> Created</label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="twitterEpReleasePostImage"
-                        name="twitterEpReleasePostImage"
-                        value={false}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="twitterEpReleasePostImage"> Not Yet</label>
-                    <br />
-                </div>
-                <hr />
+
                 <h4>Reels &amp; Stories</h4>
                 {/* ---------------TikTok + Instagram & Facebook Reels caption--------------- */}
                 <div className="form-group">
@@ -360,61 +297,11 @@ export const EpisodeForm = () => {
                         value={episode.tikTokIgFbReelVideoCaption}
                     />
                 </div>
-                {/* ---------------FIXME:TikTok + Instagram & Facebook Reels video--------------- */}
-                <div className="form-group">
-                    <label htmlFor="tikTokIgFbReelVideo">
-                        Has video been created for TikTok and Instagram/Facebook
-                        reels?
-                    </label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="tikTokIgFbReelVideo"
-                        name="tikTokIgFbReelVideo"
-                        value={true}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="tikTokIgFbReelVideo"> Created</label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="tikTokIgFbReelVideo"
-                        name="tikTokIgFbReelVideo"
-                        value={false}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="tikTokIgFbReelVideo"> Not Yet</label>
-                    <br />
-                </div>
-                <hr />
-
-                {/* ---------------FIXME:Instagram & Facebook story image--------------- */}
-                <div className="form-group">
-                    <label htmlFor="igAndFbStoryImage">
-                        Has image been created for Instagram &amp; Facebook
-                        stories? reels?
-                    </label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="igAndFbStoryImage"
-                        name="igAndFbStoryImage"
-                        value={true}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="igAndFbStoryImage"> Created</label>
-                    <br />
-                    <input
-                        type="radio"
-                        id="igAndFbStoryImage"
-                        name="igAndFbStoryImage"
-                        value={false}
-                        onChange={handleControlledInputChange}
-                    />
-                    <label htmlFor="igAndFbStoryImage"> Not Yet</label>
-                    <br />
-                </div>
-                <hr />
+                {/* 
+                ---------------------------------------------------------------------------
+                                            EPISODE SOURCES
+                ---------------------------------------------------------------------------
+                */}
                 <h4>Episode Sources Posts</h4>
 
                 {/* ---------------Facebook Sources Post--------------- */}
