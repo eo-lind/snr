@@ -11,7 +11,6 @@ export const EpisodeForm = () => {
 
     today = mm + "/" + dd + "/" + yyyy
 
-    //new Date().toISOString().slice(0, 10)
     const [episode, setEpisode] = useState({
         title: "",
         publishDate: `${today}`,
@@ -21,18 +20,12 @@ export const EpisodeForm = () => {
         briefSummaryShowNotes: "",
         blogGraphicPath: "",
         fbEpReleasePostText: "",
-        // fbEpReleaseImage: false,
         igEpReleasePostText: "",
-        // igEpReleasePostImage: false,
         twitterEpReleasePostText: "",
-        // twitterEpReleasePostImage: false,
-        // igAndFbStoryImage: false,
         fbSourcesPostText: "",
         twitterSourcesPostText: "",
-        // tikTokIgFbReelVideo: false,
         tikTokIgFbReelVideoCaption: ""
     })
-
 
     const [isLoading, setIsLoading] = useState(false)
     const [authors, setAuthors] = useState([])
