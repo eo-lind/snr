@@ -6,28 +6,23 @@
 }
 
 .episode {
-    flex-basis: 28%;
-    margin: 1em;
-    padding: 1em;
-    border: 1px solid goldenrod;
+  flex-basis: 28%;
+  margin: 3em;
+  padding: 1em;
+  transition: 0.3s;
+  position: absolute;
+  background: #D9D9D9;
+  opacity: 0.8;
+  box-shadow: 16px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
 }
 
 img {
   width: 50px;
 }
 
-.card {
-  /* Add shadows to create the "card" effect */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  border-radius: 5px; /* 5px rounded corners */
-  background: aliceblue;
-  margin-bottom: 2em;
-  flex: 0 1 24%;
-}
-
 .card-content {
-  padding: .5em;
+  /* padding: .5em; */
 }
 
 .card-content h3 {
@@ -62,4 +57,73 @@ img {
 
 .card button:hover {
   background-color: darkblue;
+}
+
+
+/* episode card */
+.card {
+  transition: 0.3s;
+  margin-bottom: 2em;
+  flex: 0 1 24%;
+  position: absolute;
+  background: #D9D9D9;
+  opacity: 0.8;
+  box-shadow: 16px 16px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+}
+
+.text-section-1
+{
+  position: absolute;
+  width: 1434px;
+  height: 358px;
+}
+
+.text-section-2
+{
+  position: absolute;
+  width: 1432px;
+  height: 497px;
+}
+
+
+.audio-video-image-section
+{
+  position: absolute;
+  width: 1432px;
+  height: 1105px;
+}
+
+.episode__individualVideo
+{
+  margin: 1em;
+  border: 1px solid gray;
+  box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.episode__imageGallery
+{
+display: flex;
+flex-flow: row wrap;
+justify-content: space-evenly;
+
+}
+
+.episode__imageContainer
+{
+flex: 0 1 24%;
+}
+
+.episode__individualImage
+{
+ width: 100%;
+ border: 1px solid gray;
+ box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.episode__videoGallery
+{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
 }

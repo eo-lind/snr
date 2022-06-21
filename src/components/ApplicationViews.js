@@ -17,8 +17,7 @@ export const ApplicationViews = () => {
                     path="/episodes/:episodeId"
                     element={<EpisodeDetail />}
                 />
-                {/* TODO: This will have to be a private route eventually - need to confirm security of having this */}
-                <Route path="/episodes/create" element={<EpisodeForm />} />
+                {/* <Route path="/episodes/create" element={<EpisodeForm />} /> */}
             </Routes>
         </>
     )

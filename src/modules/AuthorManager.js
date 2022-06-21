@@ -1,4 +1,3 @@
-// TODO: this will have to be updated when site is deployed
 const remoteURL = "http://localhost:8088"
 
 export const getAuthorById = (authorId) => {
