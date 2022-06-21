@@ -4,97 +4,174 @@
       "title": "Kathy Jones",
       "publishDate": "03/17/2017",
       "authorId": 1,
-      "audioUrl": "",
-      "showNotesUrl": "",
-      "briefSummaryShowNotes": "<p>In 1969, 12-year-old Kathy Jones left her home in Nashville's Woodbine neighborhood to go roller skating. Two days later she was found dead. We go in-depth on this tragic cold case.</p><p><strong>UPDATE 7/21/19:</strong></p><p>We've pulled our Kathy Jones episodes from the feed from the time being. In 2019, Olivia released an investigative podcast series on Kathy's murder called Flatrock. Check out flatrockpod.com for more info and take a look at the short trailer below.</p>",
-      "blogGraphicPath": "",
-      "fbEpReleasePostText": "",
-      "igEpReleasePostText": "",
-      "twitterEpReleasePostText": "",
-      "fbSourcesPostText": "",
-      "twitterSourcesPostText": "",
-      "tikTokIgFbReelVideoCaption": "",
+      "postBody": "<p>In 1969, 12-year-old Kathy Jones left her home in Nashville's Woodbine neighborhood to go roller skating. Two days later she was found dead. We go in-depth on this tragic cold case.</p><p><strong>UPDATE 7/21/19:</strong></p><p>We've pulled our Kathy Jones episodes from the feed from the time being. In 2019, Olivia released an investigative podcast series on Kathy's murder called Flatrock. Check out flatrockpod.com for more info and take a look at the short trailer below.</p>",
+      "sources": "some sources!",
+      "musicCredits": "some music sources!",
+      "showNotesUrl": "varchar",
+      "epReleaseTextFbPost": "varchar",
+      "epReleaseTextIgPost": "varchar",
+      "epReleaseTextTwitterPost": "varchar",
+      "seeSourcesTextFbPost": "varchar",
+      "seeSourcesTextTwitterPost": "varchar",
+      "epReleaseGraphicCreatedFb": false,
+      "epReleaseGraphicCreatedIg": false,
+      "epReleaseGraphicCreatedTwitter": false,
+      "epReleaseGraphicCreatedYouTubeThumbnail": false,
+      "epReleaseGraphicCreatedIgFbStories": false,
+      "epReleaseVideoCreatedIgFbTikTokReels": false,
+      "epReleaseVideoCreatedYouTube": false,
       "id": 1
-    }
-  ],
-  "image": [
+    },
     {
-      "id": 1,
-      "epImageUrl": "varchar",
-      "epImageCaption": "varchar",
-      "epImageAltText": "varchar",
-      "epImageCredit": "varchar",
-      "epImageSourceUrl": "varchar",
-      "epImageSourceCitationText": "varchar"
-    }
-  ],
-  "videos": [
-    {
-      "id": 1,
-      "sourceCitationText": "varchar",
-      "sourceUrl": "varchar"
-    }
-  ],
-  "sources": [
-    {
-      "id": 1,
-      "sourceCitationText": "varchar",
-      "sourceUrl": "varchar"
+      "title": "Hey, I'm another episode",
+      "publishDate": "12/26/1981",
+      "authorId": 2,
+      "postBody": "<p>Do you like Phil Collins? I've been a big Genesis fan ever since the release of their 1980 album, Duke. Before that, I really didn't understand any of their work. Too artsy, too intellectual. It was on Duke where Phil Collins' presence became more apparent. I think Invisible Touch was the group's undisputed masterpiece. It's an epic meditation on intangibility. At the same time, it deepens and enriches the meaning of the preceding three albums.</p><p>Christy, take off your robe.</p><p>Listen to the brilliant ensemble playing of Banks, Collins and Rutherford. You can practically hear every nuance of every instrument.<p>Sabrina, remove your dress.<p>In terms of lyrical craftsmanship, the sheer songwriting, this album hits a new peak of professionalism.</p><p>Sabrina, why don't you, uh, dance a little.</p>",
+      "sources": "<ul><li>Willard, Michelle. “Rutherford County: John Doe.”Middle Tennessee Mysteries, 22 Jan. 2018.</li><li>Wisuri, Jim. “Autopsy Offers Clues to Slain Man's Identity.” The Tennessean, 3 Aug. 1978, p. 19. newspapers.com.</li><li>---. “Probe Continues Of Burned Body Found by Lake.” The Tennessean, 2 Aug. 1978, p. 15. newspapers.com.</li></ul>",
+      "musicCredits": "some music sources!",
+      "showNotesUrl": "varchar",
+      "epReleaseTextFbPost": "varchar",
+      "epReleaseTextIgPost": "varchar",
+      "epReleaseTextTwitterPost": "varchar",
+      "seeSourcesTextFbPost": "varchar",
+      "seeSourcesTextTwitterPost": "varchar",
+      "epReleaseGraphicCreatedFb": false,
+      "epReleaseGraphicCreatedIg": false,
+      "epReleaseGraphicCreatedTwitter": false,
+      "epReleaseGraphicCreatedYouTubeThumbnail": false,
+      "epReleaseGraphicCreatedIgFbStories": false,
+      "epReleaseVideoCreatedIgFbTikTokReels": false,
+      "epReleaseVideoCreatedYouTube": false,
+      "id": 2
     }
   ],
   "authors": [
     {
       "id": 1,
-      "authorFirst": "Olivia",
-      "authorLast": "Lind",
-      "email": "notrightpodcast@gmail.com"
+      "nameFirst": "Olivia",
+      "nameLast": "Lind",
+      "email": "notrightpodcast@gmail.com",
+      "bio": "Hey I am some information about a person",
+      "website": "i'm a url"
     },
     {
       "id": 2,
-      "authorFirst": "Thashana",
-      "authorLast": "McQuiston",
-      "email": "notrightpodcast@gmail.com"
+      "nameFirst": "Thashana",
+      "nameLast": "McQuiston",
+      "email": "notrightpodcast@gmail.com",
+      "bio": "Hey I am some information about a person",
+      "website": "i'm a url"
     },
     {
       "id": 3,
-      "authorFirst": "J.R.",
-      "authorLast": "Lind",
-      "email": "notrightpodcast@gmail.com"
+      "nameFirst": "J.R.",
+      "nameLast": "Lind",
+      "email": "notrightpodcast@gmail.com",
+      "bio": "Hey I am some information about a person",
+      "website": "i'm a url"
+    }
+  ],
+  "audio": [
+    {
+      "episodeId": 1,
+      "audioUrl": "url 1 of 2",
+      "id": 1
+    },
+    {
+      "episodeId": 1,
+      "audioUrl": "url 2 of 2",
+      "id": 2
+    },
+    {
+      "episodeId": 2,
+      "audioUrl": "url",
+      "id": 3
+    }
+  ],
+  "images": [
+    {
+      "episodeId": 1,
+      "caption": "Puffin (Fratercula arctica) on the cliff above The Wick (Y Wig) on Skomer Island, Pembrokeshire, Wales. Approaching its burrow with a mouth full of lesser sand eels (Ammodytes tobianus)",
+      "altText": "a puffin standing on green moss with a mouth full of small silver sand eels",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Puffin_%28Fratercula_arctica%29_with_lesser_sand_eels_%28Ammodytes_tobianus%29.jpg/800px-Puffin_%28Fratercula_arctica%29_with_lesser_sand_eels_%28Ammodytes_tobianus%29.jpg?20210629120052",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puffin_(Fratercula_arctica)_with_lesser_sand_eels_(Ammodytes_tobianus).jpgs",
+      "id": 1
+    },
+    {
+      "episodeId": 1,
+      "caption": "Still picture of Michael Myers in David Gordon Green's Halloween. © 2018 Universal Pictures. All Rights Reserved.",
+      "altText": "Man in navy coveralls and nondescript Halloween mask holding butcher knife",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/en/e/e9/MichaelMyers2018.jpg?20210427205820",
+      "sourceUrl": "the url for the source of the second photo",
+      "id": 2
+    },
+    {
+      "episodeId": 2,
+      "caption": "Puffin (Fratercula arctica) on the cliff above The Wick (Y Wig) on Skomer Island, Pembrokeshire, Wales. Approaching its burrow with a mouth full of lesser sand eels (Ammodytes tobianus)",
+      "altText": "a puffin standing on green moss with a mouth full of small silver sand eels",
+      "imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Puffin_%28Fratercula_arctica%29_with_lesser_sand_eels_%28Ammodytes_tobianus%29.jpg/800px-Puffin_%28Fratercula_arctica%29_with_lesser_sand_eels_%28Ammodytes_tobianus%29.jpg?20210629120052",
+      "sourceUrl": "https://commons.wikimedia.org/wiki/File:Puffin_(Fratercula_arctica)_with_lesser_sand_eels_(Ammodytes_tobianus).jpgs",
+      "id": 3
+    }
+  ],
+  "videos": [
+    {
+      "episodeId": 1,
+      "videoUrl": "https://youtube.com/embed/jmzcuk5WEJw",
+      "id": 1
+    },
+    {
+      "episodeId": 1,
+      "videoUrl": "https://youtube.com/embed/u0Lg9HygEJc",
+      "id": 2
+    },
+    {
+      "episodeId": 2,
+      "videoUrl": "https://www.youtube.com/embed/CI_0QDmghIQ",
+      "id": 3
+    },
+    {
+      "episodeId": 2,
+      "videoUrl": "https://www.youtube.com/embed/Bpnt43XhQyQ",
+      "id": 4
     }
   ],
   "tags": [
     {
-      "id": 1,
+      "episodeId": 1,
       "tag": "unsolved",
-      "hashtag": "#unsolved"
-    }
-  ],
-  "episode_source": [
+      "hashtag": "#unsolved",
+      "id": 1
+    },
     {
-      "id": 1,
       "episodeId": 1,
-      "sourceId": 1
-    }
-  ],
-  "episode_image": [
+      "tag": "cold case",
+      "hashtag": "#coldcase",
+      "id": 2
+    },
     {
-      "id": 1,
       "episodeId": 1,
-      "imageId": 1
-    }
-  ],
-  "episode_tag": [
+      "tag": "Nashville homicide",
+      "hashtag": "#nashvillehomicide",
+      "id": 3
+    },
     {
-      "id": 1,
       "episodeId": 1,
-      "tagId": 1
-    }
-  ],
-  "episode_video": [
+      "tag": "true crime",
+      "hashtag": "#truecrime",
+      "id": 4
+    },
     {
-      "id": 1,
       "episodeId": 1,
-      "videoId": 1
+      "tag": "Kathy Jones",
+      "hashtag": "#kathyjones",
+      "id": 5
+    },
+    {
+      "episodeId": 2,
+      "tag": "some bullshit",
+      "hashtag": "#somebullshit",
+      "id": 6
     }
   ]
 }

@@ -1,5 +1,5 @@
 /* Import the google web fonts you want to use */
-@import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One");
+/* @import url("https://fonts.googleapis.com/css?family=Comfortaa|Patua+One"); */
 
 /*Typography
 --------------------------------------------------------------*/
@@ -20,7 +20,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Patua One", serif;
+  /* font-family: "Patua One", serif; */
   letter-spacing: 2px;
 }
 

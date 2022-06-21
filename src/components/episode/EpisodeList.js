@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { EpisodeCard } from './EpisodeCard';
-import { getAllEpisodes, deleteEpisode } from '../../modules/EpisodeManager';
+import { getAllEpisodes } from '../../modules/EpisodeManager';
 import { useNavigate } from "react-router-dom"
 
 export const EpisodeList = () => {
@@ -13,9 +13,9 @@ export const EpisodeList = () => {
     });
   };
 
-  const handleDeleteEpisode = (id) => {
-      deleteEpisode(id).then(() => getAllEpisodes().then(setEpisodes))
-  }
+//   const handleDeleteEpisode = (id) => {
+//       deleteEpisode(id).then(() => getAllEpisodes().then(setEpisodes))
+//   }
 
   useEffect(() => {
     getEpisodes();
@@ -24,7 +24,7 @@ export const EpisodeList = () => {
   return (
       <>
       {/* TODO: will eventually need to remove button... maybe create some sort of private CMS? */}
-          <section className="section-content">
+          {/* <section className="section-content">
               <button
                   type="button"
                   className="btn"
@@ -34,14 +34,13 @@ export const EpisodeList = () => {
               >
                   Add Episode
               </button>
-          </section>
+          </section> */}
           <div className="container-cards">
               {episodes.map((episode) => (
                   <EpisodeCard
                       key={episode.id}
                       episode={episode}
-                      s
-                      handleDeleteEpisode={handleDeleteEpisode}
+                    //   handleDeleteEpisode={handleDeleteEpisode}
                   />
               ))}
           </div>
