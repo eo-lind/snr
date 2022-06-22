@@ -8,16 +8,17 @@ export const EpisodeCard = ({ episode, handleDeleteEpisode }) => {
             <div className="card-content">
                 <h3 className="episode__title">{episode.title}</h3>
                 <div className="episode__pubDate">{episode.publishDate}</div>
-                <Link to={`/episodes/${episode.id}`}>
-                    <button>Details</button>
-                </Link>
-                {/* TODO: will probably have to get rid of delete button eventually */}
-                <button
-                    type="button"
-                    onClick={() => handleDeleteEpisode(episode.id)}
-                >
-                    Delete
-                </button>
+                <div className="episode__buttonContainer">
+                    <Link to={`/episodes/${episode.id}`}>
+                        <button>Details</button>
+                    </Link>
+                    <button
+                        type="button"
+                        onClick={() => handleDeleteEpisode(episode.id)}
+                    >
+                        Delete
+                    </button>
+                </div>
             </div>
         </div>
     )
