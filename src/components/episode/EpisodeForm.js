@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { addEpisode } from "../../modules/EpisodeManager"
 import { getAllAuthors } from "../../modules/AuthorManager"
+import { Editor, OriginalTools } from "react-bootstrap-editor"
 import "./EpisodeForm.css"
 
 export const EpisodeForm = () => {
@@ -108,7 +109,7 @@ export const EpisodeForm = () => {
                     <label htmlFor="postBody">Episode Summary:</label>
                     <br />
 
-                    <textarea
+                    {/* <textarea
                         rows="10"
                         cols="50"
                         name="postBody"
@@ -119,7 +120,8 @@ export const EpisodeForm = () => {
                         className="form-control"
                         placeholder="Summary"
                         value={episode.postBody}
-                    />
+                    /> */}
+                <Editor />
                 </div>
                 {/* ---------------Sources--------------- */}
                 <div className="form-group">
