@@ -17,7 +17,7 @@ export const ApplicationViews = () => {
                     path="/episodes/:episodeId"
                     element={<EpisodeDetail />}
                 />
-                {/* <Route path="/episodes/create" element={<EpisodeForm />} /> */}
+                <Route path="/episodes/create" element={<EpisodeForm />} />
             </Routes>
         </>
     )

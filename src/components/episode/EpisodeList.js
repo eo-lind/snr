@@ -23,8 +23,7 @@ export const EpisodeList = () => {
 
   return (
       <>
-      {/* TODO: will eventually need to remove button... maybe create some sort of private CMS? */}
-          {/* <section className="section-content">
+          <section className="section-content">
               <button
                   type="button"
                   className="btn"
@@ -34,7 +33,7 @@ export const EpisodeList = () => {
               >
                   Add Episode
               </button>
-          </section> */}
+          </section>
           <div className="container-cards">
               {episodes.map((episode) => (
                   <EpisodeCard

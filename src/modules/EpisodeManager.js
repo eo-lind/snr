@@ -18,12 +18,12 @@ export const getAllEpisodes = () => {
 //     }).then((result) => result.json())
 // }
 
-// export const addEpisode = (newEpisode) => {
-//     return fetch(`${remoteURL}/episodes`, {
-//         method: "POST",
-//         headers: {
-//             "Content-Type": "application/json",
-//         },
-//         body: JSON.stringify(newEpisode),
-//     }).then((response) => response.json())
-// }
+export const addEpisode = (newEpisode) => {
+    return fetch(`${remoteURL}/episodes`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newEpisode),
+    }).then((response) => response.json())
+}

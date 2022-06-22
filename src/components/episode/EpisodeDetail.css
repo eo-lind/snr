@@ -1,4 +1,4 @@
-#root > .card {
+/* #root > .card {
   max-width: 400px;
   margin: 10px auto;
 }
@@ -6,4 +6,4 @@
 button:disabled,
 button:disabled:hover {
   background-color: lightgray;
-}
+} */
