@@ -12,11 +12,11 @@ export const getAllEpisodes = () => {
   ).then((res) => res.json())
 }
 
-// export const deleteEpisode = (id) => {
-//     return fetch(`${remoteURL}/episodes/${id}`, {
-//         method: "DELETE",
-//     }).then((result) => result.json())
-// }
+export const deleteEpisode = (id) => {
+    return fetch(`${remoteURL}/episodes/${id}`, {
+        method: "DELETE",
+    }).then((result) => result.json())
+}
 
 export const addEpisode = (newEpisode) => {
     return fetch(`${remoteURL}/episodes`, {

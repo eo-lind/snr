@@ -6,8 +6,14 @@ export const EpisodeCard = ({ episode, handleDeleteEpisode }) => {
     return (
         <div className="card">
             <div className="card-content">
-                <h3 className="episode__title">{episode.title}</h3>
-                <div className="episode__pubDate">{episode.publishDate}</div>
+                <div className="episode__titleListView">{episode.title}</div>
+                <div className="episode__pubDateListView">
+                    {episode.publishDate}
+                </div>
+                <div
+                    className="episode__postBodyTruncated"
+                    dangerouslySetInnerHTML={{ __html: episode.postBody }}
+                 />
                 <div className="episode__buttonContainer">
                     <Link to={`/episodes/${episode.id}`}>
                         <button>Details</button>

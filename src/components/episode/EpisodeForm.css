@@ -1,5 +1,5 @@
 fieldset {
-    max-width: 40em;
+    max-width: 30em;
     padding: 4px;
     margin: 2em auto;
     border: 0 none;
@@ -37,7 +37,11 @@ fieldset label {
     user-select: none;
     cursor: pointer;
     text-align: right;
+    margin-top: 1em;
 }
+
+
+
 fieldset input:focus + label {
     color: #933;
 }
@@ -58,4 +62,18 @@ fieldset input, fieldset button, fieldset select {
 
 fieldset .alignRight {
     text-align: right;
+}
+
+fieldset h4 {
+margin-top: 1.5em;
+}
+
+.episodeForm__checkbox {
+    margin-right: 0.5em;
+}
+
+.episodeForm__labelText {
+    margin-top: 0.2em;
+    font-weight: normal;
+    font-size: small;
 }
