@@ -24,16 +24,12 @@ h6 {
   letter-spacing: 2px;
 }
 
-p {
-  margin-bottom: 1.5em;
-  color: #d6fcff;
-  color: darkslateblue;
-}
-
 strong {
   font-weight: bold;
 }
 
+/* container for the episode cards in list */
 .container-cards {
 	display: flex;
+  flex-flow: row wrap;
 }

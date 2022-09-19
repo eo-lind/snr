@@ -7,3 +7,11 @@ button:disabled,
 button:disabled:hover {
   background-color: lightgray;
 } */
+
+.episode__imageGalleryCaptions {
+  font-size: small;
+}
+
+.episode__imageGallerySourceLink {
+  font-size: smaller;
+}

@@ -1,6 +1,5 @@
 do I need an episodeAuthor table to search for episodes by a specific author?
 
-add dummy data for a second episode
-
+letterboxd lists from Thashana & me https://api-docs.letterboxd.com/#path--list--id--me
 
 not sure yet how to handle tags

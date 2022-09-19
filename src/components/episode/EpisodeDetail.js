@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react"
-import { getEpisodeById } from "../../modules/EpisodeManager"
+import { getEpisodeById, deleteEpisode } from "../../modules/EpisodeManager"
 import { getVideoByEpisodeId } from "../../modules/VideoManager"
 import { getImageByEpisodeId } from "../../modules/ImageManager"
+import { getAudioByEpisodeId } from "../../modules/AudioManager"
 import { useParams, useNavigate } from "react-router-dom"
+
 import "./EpisodeDetail.css"
 
 export const EpisodeDetail = () => {
@@ -12,10 +14,10 @@ export const EpisodeDetail = () => {
     const { episodeId } = useParams()
     const navigate = useNavigate()
 
-    // const handleDelete = () => {
-    //     setIsLoading(true)
-    //     deleteEpisode(episodeId).then(() => navigate("/episodes"))
-    // }
+    const handleDelete = () => {
+        setIsLoading(true)
+        deleteEpisode(episodeId).then(() => navigate("/episodes"))
+    }
 
     useEffect(() => {
         getEpisodeById(episodeId).then((episode) => {
@@ -34,7 +36,7 @@ export const EpisodeDetail = () => {
     }, [episodeId])
 
     const [videos, setVideos] = useState([])
- 
+
     useEffect(() => {
         getVideoByEpisodeId(episodeId).then((videosFromAPI) => {
             setVideos(videosFromAPI)
@@ -48,6 +50,23 @@ export const EpisodeDetail = () => {
             setImages(imagesFromAPI)
         })
     }, [episodeId])
+
+    const [audio, setAudio] = useState([])
+
+    useEffect(() => {
+        getAudioByEpisodeId(episodeId).then((audioFromAPI) => {
+            setAudio(audioFromAPI)
+        })
+    }, [episodeId])
+
+    const createSpreakerEpId = (spreakerEpId) => {
+        let episode = ""
+        episode = "episode_id=" + spreakerEpId
+        return episode
+    }
+
+   
+    
 
     return (
         <>
@@ -64,11 +83,54 @@ export const EpisodeDetail = () => {
                     className="episode__post"
                     dangerouslySetInnerHTML={{ __html: episode.postBody }}
                 />
+                {/* FIXME: embeded player isn't showing -- script tag is at the end of the <body> in index.html */}
+                <div className="episode__audioEmbed">
+                    {audio.map((audio) => (
+                        <a
+                            class="spreaker-player"
+                            href={audio.audioUrl}
+                            data-resource={createSpreakerEpId(
+                                audio.spreakerEpId
+                            )}
+                            data-width="100%"
+                            data-height="200px"
+                            data-theme="light"
+                            data-playlist="false"
+                            data-playlist-continuous="false"
+                            data-chapters-image="true"
+                            data-episode-image-position="right"
+                            data-hide-logo="false"
+                            data-hide-likes="false"
+                            data-hide-comments="true"
+                            data-hide-sharing="false"
+                            data-hide-download="true"
+                            data-color="f78da7"
+                        >
+                            Listen to "{episode.title} {audio.audioSequence} on
+                            Spreaker.
+                        </a>
+                    ))}
+                </div>
                 {/* TODO: LATER set up a nice image gallery*/}
                 <div className="episode__imageGallery">
                     {images.map((image) => (
                         <div className="episode__imageContainer">
-                            <img className="episode__individualImage" src={image.imgUrl} alt={image.altText} />
+                            <img
+                                className="episode__individualImage"
+                                src={image.imgUrl}
+                                alt={image.altText}
+                            />
+                            <caption className="episode__imageGalleryCaptions">
+                                {image.caption} (
+                                <a
+                                    href={image?.sourceUrl}
+                                    target="_blank"
+                                    className="episode__imageGallerySourceLink"
+                                >
+                                    {image?.sourceText}
+                                </a>
+                                )
+                            </caption>
                         </div>
                     ))}
                 </div>
@@ -97,9 +159,13 @@ export const EpisodeDetail = () => {
                     dangerouslySetInnerHTML={{ __html: episode.musicCredits }}
                 />
                 {/* TODO: Add tags */}
-                {/* <button type="button" disabled={isLoading} onClick={handleDelete}>
-                Delete
-            </button> */}
+                <button
+                    type="button"
+                    disabled={isLoading}
+                    onClick={handleDelete}
+                >
+                    Delete
+                </button>
             </section>
         </>
     )
