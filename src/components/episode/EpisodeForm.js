@@ -231,7 +231,7 @@ export const EpisodeForm = () => {
                         onChange={handleControlledInputChange}
                         className="form-control"
                     >
-                        <option value="0">Select an author</option>
+                        <option value="0">Select</option>
                         {authors.map((singleAuthor) => (
                             <option
                                 key={singleAuthor.id}
@@ -567,7 +567,7 @@ export const EpisodeForm = () => {
             </fieldset>
             <button
                 type="button"
-                className="btn btn-primary"
+                className="snrBtn"
                 onClick={handleClickSaveEpisode}
             >
                 Save Episode

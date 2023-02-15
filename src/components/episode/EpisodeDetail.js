@@ -4,8 +4,9 @@ import { getVideoByEpisodeId } from "../../modules/VideoManager"
 import { getImageByEpisodeId } from "../../modules/ImageManager"
 import { getAudioByEpisodeId } from "../../modules/AudioManager"
 import { useParams, useNavigate } from "react-router-dom"
-
+import ImageGallery from "react-image-gallery"
 import "./EpisodeDetail.css"
+import "./ImageGallery.css"
 
 export const EpisodeDetail = () => {
     const [episode, setEpisode] = useState([])
@@ -65,29 +66,32 @@ export const EpisodeDetail = () => {
         return episode
     }
 
-   
-    
+    const episodeImageGallery = () => {
+            return <ImageGallery items={images} />
+    }
+
 
     return (
         <>
             <section className="episode">
                 <h3 className="episode__title">{episode.title}</h3>
-                <div className="episode__publishDate">
-                    {episode.publishDate}
-                </div>
                 <div className="episode__author">
                     {/* TODO: LATER link to author details page*/}
                     {episode.authorNameFirst} {episode.authorNameLast}
+                </div>
+                <div className="episode__publishDate">
+                    {episode.publishDate}
                 </div>
                 <div
                     className="episode__post"
                     dangerouslySetInnerHTML={{ __html: episode.postBody }}
                 />
+                {episodeImageGallery()}
                 {/* FIXME: embeded player isn't showing -- script tag is at the end of the <body> in index.html */}
                 <div className="episode__audioEmbed">
                     {audio.map((audio) => (
                         <a
-                            class="spreaker-player"
+                            className="spreaker-player"
                             href={audio.audioUrl}
                             data-resource={createSpreakerEpId(
                                 audio.spreakerEpId
@@ -111,8 +115,8 @@ export const EpisodeDetail = () => {
                         </a>
                     ))}
                 </div>
-                {/* TODO: LATER set up a nice image gallery*/}
-                <div className="episode__imageGallery">
+                {/* old image gallery code TODO: save somewhere */}
+                {/* <div className="episode__imageGallery">
                     {images.map((image) => (
                         <div className="episode__imageContainer">
                             <img
@@ -133,7 +137,7 @@ export const EpisodeDetail = () => {
                             </caption>
                         </div>
                     ))}
-                </div>
+                </div> */}
                 <div className="episode__videoGallery">
                     {videos.map((video) => (
                         <iframe
@@ -148,19 +152,44 @@ export const EpisodeDetail = () => {
                         ></iframe>
                     ))}
                 </div>
-                <h4 className="episode__sourcesHeading">Sources</h4>
-                <div
-                    className="episode__sources"
-                    dangerouslySetInnerHTML={{ __html: episode.sources }}
-                />
-                <h4 className="episode__musicHeading">Music</h4>
-                <div
-                    className="episode__musicCredits"
-                    dangerouslySetInnerHTML={{ __html: episode.musicCredits }}
-                />
+                <details>
+                    <summary>
+                        Expand for research sources and music credits
+                    </summary>
+                    <h5 id="episode__sourcesHeading">Sources</h5>
+                    <div
+                        className="episode__sources"
+                        dangerouslySetInnerHTML={{ __html: episode.sources }}
+                    />
+                    <h5 id="episode__imageSourcesHeading">Images</h5>
+                    <div className="episode__imageSources">
+                        <ul className="episode__imageSources">
+                            {images.map((image) => (
+                                <li>
+                                    {image.caption} - (
+                                    <a
+                                        href={image?.sourceUrl}
+                                        target="_blank"
+                                    >
+                                        {image?.sourceText}
+                                    </a>
+                                    )
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                    <h5 id="episode__musicSourcesHeading">Music</h5>
+                    <div
+                        className="episode__musicCredits"
+                        dangerouslySetInnerHTML={{
+                            __html: episode.musicCredits,
+                        }}
+                    />
+                </details>
                 {/* TODO: Add tags */}
                 <button
                     type="button"
+                    className="snrBtn"
                     disabled={isLoading}
                     onClick={handleDelete}
                 >
