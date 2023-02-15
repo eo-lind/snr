@@ -6,7 +6,7 @@ export const EpisodeCard = ({ episode, handleDeleteEpisode }) => {
     return (
         <div className="card">
             <div className="card-content">
-                <div className="episode__titleListView">{episode.title}</div>
+                <h3 className="episode__titleListView">{episode.title}</h3>
                 <div className="episode__pubDateListView">
                     {episode.publishDate}
                 </div>
@@ -16,14 +16,14 @@ export const EpisodeCard = ({ episode, handleDeleteEpisode }) => {
                  />
                 <div className="episode__buttonContainer">
                     <Link to={`/episodes/${episode.id}`}>
-                        <button>Details</button>
+                        <button>More</button>
                     </Link>
-                    <button
+                    {/* <button
                         type="button"
                         onClick={() => handleDeleteEpisode(episode.id)}
                     >
                         Delete
-                    </button>
+                    </button> */}
                 </div>
             </div>
         </div>

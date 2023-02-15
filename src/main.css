@@ -1,0 +1,79 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Roboto+Mono&display=swap');
+
+:root {
+  --primaryColor: #8bd4e1;
+  --primaryLightColor: #beffff;
+  --primaryDarkColor: #59a3af;
+  --primaryTextColor: #000000;
+  --primaryLinkColor: #0d252b;
+
+  --secondaryColor: #f49ac1;
+  --secondaryLightColor: #ffccf4;
+  --secondaryDarkColor: #c06a91;
+  --secondaryLinkColor: #3f242f;
+
+  --softerWhite: #f0fbff;
+
+  --headerFontFamily: 'Roboto Mono', monospace;
+  --normalFontFamily: 'Roboto', sans-serif;
+}
+
+body {
+  font-family: var(--normalFontFamily);
+  color: var(--primaryTextColor);
+  margin: 0;
+  background-color: var(--softerWhite);
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--headerFontFamily);
+  text-transform: uppercase;
+}
+
+/* container for the episode cards in list */
+.container-cards {
+	display: flex;
+  flex-flow: row wrap;
+}
+
+/* GENERAL LINK STYLING */
+
+a, a:link {
+  color: var(--primaryLinkColor);
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+a:visited {
+  color: var(--primaryLinkColor);
+}
+
+a:hover {
+  text-decoration: underline dotted var(--secondaryDarkColor);
+}
+
+a:active {
+  border: 1px solid var(--secondaryDarkColor);
+}
+
+a:focus {
+  border: 1px solid var(--secondaryDarkColor);
+}
+
+/* DEFAULT BUTTON STYLING */
+
+.snrBtn
+{
+  background-color: var(--secondaryLightColor);
+  color: var(--secondaryLinkColor);
+  border: 1px solid var(--secondaryDarkColor);
+  box-shadow: 4px 4px var(--secondaryColor);
+  border-radius: 0.25em;
+  padding: 0.5em;
+  font-family: var(--headerFontFamily);
+  font-size: small;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  vertical-align: middle;
+}

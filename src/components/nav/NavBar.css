@@ -7,4 +7,26 @@
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    font-family: var(--headerFontFamily);
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+
+li a:link {
+    color: var(--primaryLinkColor);
+}
+
+li a:hover {
+    color: var(--secondaryDarkColor);
+    text-decoration: none;
+    text-transform: lowercase;
+}
+
+li a:active {
+  border: 1px solid var(--primaryDarkColor);
+}
+
+li a:focus {
+  color: var(--primaryDarkColor);
+  border-style: none;
 }

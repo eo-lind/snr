@@ -4,27 +4,14 @@
   justify-content: space-between;
 }
 
-/* episode card - details view*/
-.episode {
-  flex-basis: 28%;
-  margin: 3em;
-  padding: 1em;
-  transition: 0.3s;
-  position: absolute;
-  background: #D9D9D9;
-  opacity: 0.8;
-  box-shadow: 16px 16px rgba(0, 0, 0, 0.25);
-  border-radius: 5px;
-}
-
 /* episode card - list view */
 .card {
   transition: 0.3s;
   margin: 1em;
   padding: 1em;
   /* flex: 0 1 24%; */
-  background: #d9d9d9;
-  background-image: linear-gradient(to bottom, rgb(235, 235, 235), rgba(255, 255, 255, .75)), url("/public/images/episode-images/mary-the-elephant-ep-graphic.png");
+  background: var(--softerWhite);
+  background-image: linear-gradient(to bottom, rgb(235, 235, 235), rgba(255, 255, 255, .75)), url("/public/images/episode-images/08-mary-the-elephant-ep-graphic.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -32,8 +19,9 @@
   width: 250px;
 
   opacity: 0.8;
-  box-shadow: 8px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 8px 8px var(--primaryColor);
   border-radius: 5px;
+  border: 1px solid var(--primaryDarkColor)
 }
 
 /* container for everything on the list view card */
@@ -51,7 +39,10 @@
   margin-top: 0;
   font-weight: bold;
   font-size: medium;
-  color: #404040;
+}
+
+.episode__pubDateListView {
+  font-size: smaller;
 }
 
 /* container for buttons on list view cards */
@@ -64,19 +55,22 @@
 
 /* buttons on the episode list view cards */
 .card button {
-  background-color: rgb(236, 145, 214);
-  box-shadow: 4px 4px rgba(0, 0, 0, 0.25);
-  border: none;
-  color: rgb(38, 39, 56);
+  background-color: var(--secondaryLightColor);
+  color: var(--secondaryLinkColor);
+  border: 1px solid var(--secondaryDarkColor);
+  box-shadow: 4px 4px var(--secondaryColor);
+  border-radius: 0.25em;
+  padding: .25em 1em;
+  font-family: var(--headerFontFamily);
+  font-size: smaller;
+  text-transform: uppercase;
+  box-sizing: border-box;
+  vertical-align: middle;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 10px;
   font-weight: bold;
-  padding: .5em;
-  border-radius: 2px;
   margin: 0.5em;
-  width: 100px;
 }
 
 /* buttons on the all episodes page */
@@ -89,12 +83,13 @@
 /* truncated postBody on list view cards */
 .episode__postBodyTruncated
 {
-  height: 30%;
+  height: 40%;
   white-space: wrap;
   overflow: hidden;
   text-overflow: clip ellipsis;
+  text-transform: uppercase;
+  font-size: small;
 }
-
 
 /* 
 .text-section-1
@@ -152,3 +147,4 @@ flex: 0 1 24%;
   flex-flow: row wrap;
   justify-content: space-evenly;
 } */ 
+

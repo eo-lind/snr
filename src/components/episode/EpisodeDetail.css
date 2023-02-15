@@ -1,17 +1,48 @@
-/* #root > .card {
-  max-width: 400px;
-  margin: 10px auto;
+/* episode card - details view*/
+.episode {
+  flex-basis: 28%;
+  margin: 3em;
+  padding: 1em;
+  transition: 0.3s;
+  position: absolute;
+  background: var(--primaryColor);
+  opacity: 0.8;
+  box-shadow: 16px 16px var(--primaryDarkColor);
+  border-radius: 5px;
 }
 
-button:disabled,
-button:disabled:hover {
-  background-color: lightgray;
-} */
+.episode__publishDate {
+  font-size: smaller;
+}
 
-.episode__imageGalleryCaptions {
+.episode__author {
+  font-family: var(--headerFontFamily);
+  text-transform: uppercase;
+  font-size: smaller;
+}
+
+.episode__post {
+  text-align: justify;
+}
+
+/* .episode__imageGalleryCaptions {
   font-size: small;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--primaryTextColor)
 }
 
 .episode__imageGallerySourceLink {
   font-size: smaller;
+  text-transform: uppercase;
+} */
+
+.episode__sources, .episode__musicCredits, .episode__imageSources {
+  font-size: small;
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#episode__imageSourcesHeading, #episode__sourcesHeading {
+  margin-top: 0.5em;
 }
